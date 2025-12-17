@@ -85,8 +85,11 @@ RUN cd $FLUTTER_HOME \
 RUN cd $FLUTTER_HOME \
     && flutter doctor
 
+USER root
+RUN git config --global --add safe.directory /opt/flutter
+
 # Set working directory inside container
-WORKDIR /app
+WORKDIR /workspace
 
 # Default command
 CMD ["bash"]
